@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+  <classes>
+<class name="BloodProduct.CreateBloodProduct" />
+<class name="HlaManagement.Family" />
+<class name="HlaManagement.Hla" />
+<class name="HlaManagement.hlaForFamily" />
+<class name="HlaManagement.UpdateHlaStatus" />
+<class name="InitialClinicalManagement.ClinicalCoarseNew" />
+<class name="InitialClinicalManagement.ConsentForPatient" />
+<class name="InitialClinicalManagement.CreateDoctorNotes" />
+<class name="InitialClinicalManagement.DiseaseSpecificSummary" />
+<class name="InitialClinicalManagement.GeneralEvaluation" />
+<class name="InitialClinicalManagement.GenerateClinicalForGeneralEvaluation" />
+<class name="InitialClinicalManagement.NursingNodes" />
+<class name="inventory.AddBloodProduct" />
+<class name="inventory.AddNewAssociate" />
+<class name="inventory.AddNewInvestigation" />
+<class name="inventory.CreateItem" />
+<class name="inventory.Transaction" />
+<class name="PatientManagement.CheckPatient" />
+<class name="PatientManagement.CheckPatientIndashboard" />
+<class name="PatientManagement.PatientReg" />
+<class name="TestReport.DonorTestReport" />
+<class name="TestReport.GeneralEvaluationTestReport" />
+<class name="TestReport.Test" />
+<class name="TransplantDataManagement.TransplantSummary" />
+<class name="TreatmentPlanMedicineDelivery.Consume" />
+<class name="TreatmentPlanMedicineDelivery.DeliverMedicine" />
+<class name="TreatmentPlanMedicineDelivery.Stock" />
+<class name="TreatmentPlanMedicineDelivery.testStock" />
+<class name="TreatmentPlanMedicineDelivery.TreatmentPlanForDonor" /> 
+
+</classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
