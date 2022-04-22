@@ -1,7 +1,11 @@
 package PatientManagement;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
@@ -25,7 +29,8 @@ public class CheckPatientIndashboard {
 		driver.findElement(By.id("edit-pass")).sendKeys("PriyankaGK");;
 		driver.findElement(By.id("edit-submit")).click();
 		driver.findElement(By.xpath("//a[@href='/patients?=&tid%5B%5D=10']")).click();
-		driver.findElement(By.xpath("//a[@href='/add-new-patient-details']")).click();
+		driver.navigate().to("https://dev.bmtplus.com/node/add/patient");;
+		driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//div[@id='edit_field_patient_disease_und_chosen']")).click();
 		driver.findElement(By.xpath("//li[text()='Severe Thalassemia (major or intermedia)']")).click();
 		driver.findElement(By.xpath("//select[@id='edit-field-patient-status-description-und']")).click();
@@ -36,8 +41,14 @@ public class CheckPatientIndashboard {
 		driver.findElement(By.xpath("//input[@id='edit-field-patient-name-und-0-value']")).sendKeys("demoPatient");
 		//driver.findElement(By.xpath("//input[@id='edit-field-patient-uhid-und-0-value']")).sendKeys("UHID147");
 		driver.findElement(By.xpath("//input[@id='edit-field-patient-date-of-birth-und-0-value-datepicker-popup-0']")).sendKeys("17 Sep 2010");
-		driver.findElement(By.xpath("//input[@id='edit-field-patient-gender-und-male']")).click();
-		driver.findElement(By.xpath("//input[@id='edit-submit']")).click();
+		
+		driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+        
+        
+        
+        WebElement ele213 = driver.findElement(By.xpath("//input[@id='edit-field-patient-gender-und-male']"));
+		JavascriptExecutor executor21115 = (JavascriptExecutor)driver;
+		executor21115.executeScript("arguments[0].click();", ele213);		driver.findElement(By.xpath("//input[@id='edit-submit']")).click();
 		driver.findElement(By.xpath("//li[@id='menu-1060-1']/a")).click();
 		driver.findElement(By.xpath("//div[@id='edit_og_group_ref_target_id_chosen']")).click();
 		driver.findElement(By.xpath("//li[text()='Test Centre (TSA)']")).click();

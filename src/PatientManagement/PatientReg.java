@@ -36,8 +36,8 @@ public class PatientReg
 		driver.findElement(By.id("edit-pass")).sendKeys("PriyankaGK");;
 		driver.findElement(By.id("edit-submit")).click();
 		driver.findElement(By.xpath("//*[@id='menu-1060-1']/a")).click();
-		
-		driver.findElement(By.xpath("//*[@id=\"block-system-main\"]/div/div[1]/div/div[1]/a")).click();
+		driver.navigate().to("https://dev.bmtplus.com/node/add/patient");
+		driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("//div[@id='edit_field_patient_disease_und_chosen']")).click();
 		driver.findElement(By.xpath("//li[text()='Severe Thalassemia (major or intermedia)']")).click();
 		driver.findElement(By.xpath("//select[@id='edit-field-patient-status-description-und']")).click();
@@ -73,9 +73,18 @@ public class PatientReg
         driver.findElement(By.xpath("//input[@id='edit-field-patient-uuid-und-0-value']")).sendKeys("123");
         driver.findElement(By.xpath("//input[@id='edit-field-patient-date-of-birth-und-0-value-datepicker-popup-0']")).sendKeys("25 Feb 1997");
        // driver.findElement(By.xpath("//input[@id='edit-field-patient-registration-date-und-0-value-datepicker-popup-0']")).sendKeys("23 Mar 2019");
-        driver.findElement(By.xpath("//input[@id='edit-field-patient-gender-und-female']")).click();
-        driver.findElement(By.xpath("//select[@id='edit-field-patient-religion-und']")).click();
-        driver.findElement(By.xpath("//option[@value='Buddhism']")).click();
+        driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
+        
+        
+        
+        WebElement ele213 = driver.findElement(By.xpath("//input[@id='edit-field-patient-gender-und-male']"));
+		JavascriptExecutor executor21115 = (JavascriptExecutor)driver;
+		executor21115.executeScript("arguments[0].click();", ele213);
+
+        
+        
+        //driver.findElement(By.xpath("//select[@id='edit-field-patient-religion-und']")).click();
+        //driver.findElement(By.xpath("//option[@value='Buddhism']")).click();
       //driver.findElement(By.xpath("//div[@id='edit_field_patient_address_und_0_country_chosen']")).click();
     // driver.findElement(By.xpath("//li[text()='India']")).click();
        
@@ -112,7 +121,7 @@ public class PatientReg
     driver.findElement(By.xpath("//input[@id='edit-field-patient-next-follow-with-und-0-target-id']")).sendKeys("Aditi (12666)");
     driver.findElement(By.xpath("//input[@id='edit-field-patient-transplant-centre-und-0-target-id']")).sendKeys("Al-Zahra Teaching Hospital, Najaf-Iraq (IQA) (61747)");
      driver.findElement(By.xpath("//input[@id='edit-field-patient-primary-physician-und-0-uid']")).sendKeys("abrashi");
-     driver.findElement(By.xpath("//input[@id='edit-field-patient-primary-nurse-und-0-uid']")).sendKeys("abida");
+    // driver.findElement(By.xpath("//input[@id='edit-field-patient-primary-nurse-und-0-uid']")).sendKeys("abida");
      driver.findElement(By.xpath("//div[@id='edit_field_patient_shadow_physician_und_chosen']")).click();
      driver.findElement(By.xpath("//li[text()='abrashi']")).click();
      driver.findElement(By.xpath("//div[@id='edit_field_patient_shadow_nurse_und_chosen']")).click();
