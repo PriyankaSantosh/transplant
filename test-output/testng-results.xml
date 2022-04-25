@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="71380" started-at="2022-04-22T12:34:48Z" finished-at="2022-04-22T12:35:59Z">
+  <suite name="Default suite" duration-ms="91362" started-at="2022-04-25T06:47:44Z" finished-at="2022-04-25T06:49:16Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="71380" started-at="2022-04-22T12:34:48Z" finished-at="2022-04-22T12:35:59Z">
-      <class name="PatientManagement.CheckPatientIndashboard">
-        <test-method status="PASS" signature="CheckPatientIndashboard()[pri:0, instance:PatientManagement.CheckPatientIndashboard@1b2abca6]" name="CheckPatientIndashboard" duration-ms="71345" started-at="2022-04-22T18:04:48Z" finished-at="2022-04-22T18:05:59Z">
+    <test name="Default test" duration-ms="91362" started-at="2022-04-25T06:47:44Z" finished-at="2022-04-25T06:49:16Z">
+      <class name="generic.BaseTestPateint">
+        <test-method status="PASS" signature="BaseTestPateint()[pri:0, instance:generic.BaseTestPateint@36916eb0]" name="BaseTestPateint" duration-ms="91343" started-at="2022-04-25T12:17:44Z" finished-at="2022-04-25T12:19:16Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- CheckPatientIndashboard -->
-      </class> <!-- PatientManagement.CheckPatientIndashboard -->
+        </test-method> <!-- BaseTestPateint -->
+      </class> <!-- generic.BaseTestPateint -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
