@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="91362" started-at="2022-04-25T06:47:44Z" finished-at="2022-04-25T06:49:16Z">
+  <suite name="Default suite" duration-ms="77721" started-at="2022-04-27T08:10:14Z" finished-at="2022-04-27T08:11:31Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="91362" started-at="2022-04-25T06:47:44Z" finished-at="2022-04-25T06:49:16Z">
-      <class name="generic.BaseTestPateint">
-        <test-method status="PASS" signature="BaseTestPateint()[pri:0, instance:generic.BaseTestPateint@36916eb0]" name="BaseTestPateint" duration-ms="91343" started-at="2022-04-25T12:17:44Z" finished-at="2022-04-25T12:19:16Z">
+    <test name="Default test" duration-ms="77721" started-at="2022-04-27T08:10:14Z" finished-at="2022-04-27T08:11:31Z">
+      <class name="InitialClinicalManagement.CreateDoctorNotes">
+        <test-method status="PASS" signature="CreateDoctorNotes()[pri:0, instance:InitialClinicalManagement.CreateDoctorNotes@4dbb42b7]" name="CreateDoctorNotes" duration-ms="77699" started-at="2022-04-27T13:40:14Z" finished-at="2022-04-27T13:41:31Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- BaseTestPateint -->
-      </class> <!-- generic.BaseTestPateint -->
+        </test-method> <!-- CreateDoctorNotes -->
+      </class> <!-- InitialClinicalManagement.CreateDoctorNotes -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

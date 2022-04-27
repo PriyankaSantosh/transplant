@@ -1,9 +1,17 @@
 package inventory;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -11,25 +19,40 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class AddNewInvestigation {
+import generic.IAutoConst;
+
+public class AddNewInvestigation implements IAutoConst {
 	static {
-		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		System.setProperty(CHROME_KEY, CHROME_VALUE);
 	}
 	
 	WebDriver driver=new ChromeDriver();
 	@Test
-	public void AddNewInvestigation() throws InterruptedException 
+	public void AddNewInvestigation() throws InterruptedException, FileNotFoundException, IOException, EncryptedDocumentException, InvalidFormatException 
 	{
-	
-	
+		
+		Properties p =new Properties();
+		p.load(new FileInputStream("./configs/configuration.properties"));
+		driver.get(p.getProperty("url"));
+		driver.manage().window().maximize();
 
+		Workbook w= WorkbookFactory.create(new FileInputStream("./configs/data.xlsx"));
+		String username = w.getSheet("DemoA").getRow(0).getCell(0).getStringCellValue();
+		
+		Workbook w1= WorkbookFactory.create(new FileInputStream("./configs/data.xlsx"));
+		String password = w1.getSheet("DemoA").getRow(0).getCell(0).getStringCellValue();
+	
+		driver.findElement(By.id("edit-name")).sendKeys(username);
+		driver.findElement(By.id("edit-pass")).sendKeys(password);
+		
+		
+		
 	//public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		//WebDriver driver= new ChromeDriver();
-		driver.get("http://dev.bmtplus.com/");
-		driver.manage().window().maximize();
-		driver.findElement(By.id("edit-name")).sendKeys("PriyankaGK");;
-		driver.findElement(By.id("edit-pass")).sendKeys("PriyankaGK");;
+		//driver.get("http://dev.bmtplus.com/");
+		//driver.findElement(By.id("edit-name")).sendKeys("PriyankaGK");;
+		//driver.findElement(By.id("edit-pass")).sendKeys("PriyankaGK");;
 		driver.findElement(By.id("edit-submit")).click();
 		driver.get("http://dev.bmtplus.com/node/add/associate");
 		DateFormat dateformat=new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");

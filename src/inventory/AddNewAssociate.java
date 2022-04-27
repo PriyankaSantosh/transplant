@@ -1,33 +1,62 @@
 package inventory;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
-public class AddNewAssociate {
+import com.gargoylesoftware.htmlunit.javascript.host.file.File;
+
+import generic.IAutoConst;
+
+public class AddNewAssociate implements IAutoConst {
 	static {
-		System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");
+		System.setProperty(CHROME_KEY, CHROME_VALUE);
 	}
 	
 	WebDriver driver=new ChromeDriver();
 	@Test
-	public void AddNewAssociate() throws InterruptedException 
+	public void AddNewAssociate() throws InterruptedException, FileNotFoundException, IOException, EncryptedDocumentException, InvalidFormatException 
 	{
+	Properties p= new Properties();
+	p.load(new FileInputStream("./configs/configuration.properties"));
+	driver.get(p.getProperty("url"));
 	
 	
 	//public static void main(String[] args) throws Exception {
 		//WebDriver driver= new ChromeDriver();
-		driver.get("http://dev.bmtplus.com/");
+		//driver.get("http://dev.bmtplus.com/");
 		driver.manage().window().maximize();
-		driver.findElement(By.id("edit-name")).sendKeys("PriyankaGK");;
-		driver.findElement(By.id("edit-pass")).sendKeys("PriyankaGK");;
+		
+		Workbook w= WorkbookFactory.create(new FileInputStream("Configs/data.xlsx"));
+		String username = w.getSheet("DemoA").getRow(0).getCell(0).getStringCellValue();
+		
+		Workbook w1= WorkbookFactory.create(new FileInputStream("Configs/data.xlsx"));
+		String password = w1.getSheet("DemoA").getRow(0).getCell(0).getStringCellValue();
+	
+		driver.findElement(By.id("edit-name")).sendKeys(username);;
+		driver.findElement(By.id("edit-pass")).sendKeys(password);;
+		
+		
+		//driver.findElement(By.id("edit-name")).sendKeys("PriyankaGK");;
+		//driver.findElement(By.id("edit-pass")).sendKeys("PriyankaGK");;
 		driver.findElement(By.id("edit-submit")).click();
 		driver.get("http://dev.bmtplus.com/node/add/associate");
+		
+		driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
 		DateFormat dateformate= new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		Date date =new Date();
 		String dd = dateformate.format(date);

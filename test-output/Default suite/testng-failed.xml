@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="generic.BaseTestPateint">
+      <class name="inventory.AddNewInvestigation">
         <methods>
-          <include name="BaseTestPateint"/>
+          <include name="AddNewInvestigation"/>
         </methods>
-      </class> <!-- generic.BaseTestPateint -->
+      </class> <!-- inventory.AddNewInvestigation -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
