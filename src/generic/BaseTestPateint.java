@@ -39,6 +39,7 @@ public class BaseTestPateint implements IAutoConst {
 		/*System.setProperty("webdriver.chrome.driver", "./driver/chromedriver.exe");*/
 		System.setProperty(CHROME_KEY,CHROME_VALUE);
 		System.setProperty(GECKO_KEY,GECKO_VALUE);
+		
 	}
 	
 	
