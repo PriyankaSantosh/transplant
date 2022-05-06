@@ -76,7 +76,8 @@ public class GenerateClinicalForGeneralEvaluation {
 
 	    WebElement ele213 = driver.findElement(By.xpath("//input[@id='edit-field-patient-gender-und-male']"));
 	    JavascriptExecutor executor21115 = (JavascriptExecutor)driver;
-	    executor21115.executeScript("arguments[0].click();", ele213);    		driver.findElement(By.xpath("//input[@id='edit-submit']")).click();
+	    executor21115.executeScript("arguments[0].click();", ele213);    	
+	    driver.findElement(By.xpath("//input[@id='edit-submit']")).click();
 		
 		driver.findElement(By.xpath("//a[@id=\"quicktabs-tab-patient_summary_pre_bmt-1\"]/span[1]")).click();
 		Thread.sleep(1000);
